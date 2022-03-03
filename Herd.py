@@ -16,7 +16,7 @@ class Herd:
         # for i in self.dinosaurs:
         #     print(i.name)
 
-
+#for testing:
 herd = Herd()
 
 
