@@ -7,9 +7,9 @@ class Robot:
         self.weapon = weapon
     
     def attack(self, dinosaur):
-        dinosaur.health -= self.weapon.attack_power
-        print(f'{self.name} attacked!')
-        if self.attack_power > dinosaur.health:
-            print(f'{dinosaur.name} died.')
-        else:
-            print(f'{dinosaur.name} was damaged. Health = {dinosaur.health}')
+        print(f'{self.name} attacked {dinosaur} with {self.weapon.name}!')
+             
+robot = Robot('Test bot', Weapon('test weapon', 10))
+print(robot.name + robot.weapon.name)
+
+robot.attack('stego')
