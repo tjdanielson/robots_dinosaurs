@@ -12,3 +12,6 @@ class Dinosaur:
             print(f'{robot.name} died.')
         else:
             print(f'{robot.name} was damaged. Health = {robot.health}')
+
+
+
