@@ -14,6 +14,8 @@ class Battlefield:
         dinosaur_choice = self.show_dino_fighter_options()
         robot_choice = self.show_robo_fighter_options()
         print('****************************************')
+        print('READY...SET...BATTLE!!!')
+        print('****************************************')
         if dino_start == True:
             self.dino_turn(dinosaur_choice, robot_choice)
             self.robo_turn(robot_choice, dinosaur_choice)
@@ -22,6 +24,7 @@ class Battlefield:
             self.robo_turn(robot_choice, dinosaur_choice)
             self.dino_turn(dinosaur_choice, robot_choice)
             dino_start = True
+
 
         
     def dino_turn(self, dinosaur_choice, robot_choice):
@@ -39,11 +42,9 @@ class Battlefield:
     def show_dino_fighter_options(self):
         print('****************************************')
         print('TEAM DINOSAUR! Pick your dinosaur: ')
-        count = 0
         for i in self.herd.dinosaurs:
             if i.health > 0:
                 print(f'{str(self.herd.dinosaurs.index(i))} for {i.name}. Remaining Health: {i.health}')
-                count += 1
         dinosaur_choice = input('Enter your choice of dinosaur ')
         if dinosaur_choice == '0' or dinosaur_choice == '1' or dinosaur_choice == '2':
             dinosaur_choice = self.herd.dinosaurs[int(dinosaur_choice)]
@@ -54,11 +55,9 @@ class Battlefield:
     def show_robo_fighter_options(self):
         print('****************************************')
         print('TEAM ROBOT! Pick your robot: ')
-        count = 0
         for i in self.fleet.robots:
             if i.health > 0:
                 print(f'{str(self.fleet.robots.index(i))} for {i.name}. Remaining Health: {i.health}')
-                count += 1
         robot_choice = input('Enter your choice of robot ')
         if robot_choice == '0' or robot_choice == '1' or robot_choice == '2':
             robot_choice = self.fleet.robots[int(robot_choice)]
@@ -82,20 +81,26 @@ class Battlefield:
         return keep_playing
 
     def display_winners(self):
+        print('****************************************')
+        print('WE HAVE A WINNER.....')
         total_health_dino = 0
         total_health_robot = 0
         winner = ''
+        print('STATS:')
         for i in self.fleet.robots:
+            print(f'Robot: {i.name} Remaining Health: {i.health}')
             if i.health > 0:
                 total_health_robot += i.health
         for i in self.herd.dinosaurs:
+            print(f'Dinosaur: {i.name} Remaining Health: {i.health}')
             if i.health > 0:
                 total_health_dino += i.health
         if total_health_dino > 0:
             winner = 'Team Dinosaur'
         else:
             winner = 'Team Robot'
-        print(f'The winner is {winner}!!!!')
+        print('****************************************')
+        print(f'THE WINNER IS {winner.upper}!!!!')
 
     def run_game(self):
         #display a welcome message
