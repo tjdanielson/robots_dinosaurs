@@ -38,7 +38,7 @@ class Battlefield:
         count = 1
         for i in self.herd.dinosaurs:
             if i.health > 0:
-                print(f'{str(count)} for {i.name}')
+                print(f'{str(count)} for {i.name}. Remaining Health: {i.health}')
                 count += 1
         dinosaur_choice = input('Enter your choice of dinosaur ')
         if dinosaur_choice == '0' or dinosaur_choice == '1' or dinosaur_choice == '2':
@@ -52,7 +52,7 @@ class Battlefield:
         count = 0
         for i in self.fleet.robots:
             if i.health > 0:
-                print(f'{str(count)} for {i.name}')
+                print(f'{str(count)} for {i.name}. Remaining Health: {i.health}')
                 count += 1
         robot_choice = input('Enter your choice of robot ')
         if robot_choice == '0' or robot_choice == '1' or robot_choice == '2':
