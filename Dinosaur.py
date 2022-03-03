@@ -12,7 +12,7 @@ class Dinosaur:
             print(f'{self.name} landed a blow on {robot.name} dealing {self.attack_power} damage.')
         else:
             robot.health -= self.attack_power
-            print(f'{self.name} attacked {robot.name} and did {self.attack_power} damage leaving {robot.name} with {robot.heath} health remaining')
+            print(f'{self.name} attacked {robot.name} and did {self.attack_power} damage leaving {robot.name} with {robot.health} health remaining')
         
 
 #for testing:

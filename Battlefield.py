@@ -14,28 +14,28 @@ class Battlefield:
         dinasaur_choice = self.show_dino_fighter_options()
         robot_choice = self.show_robo_fighter_options()
         if dino_start == True:
-            self.dino_turn(dinasaur_choice)
-            self.robo_turn(robot_choice)
+            self.dino_turn(dinasaur_choice, robot_choice)
+            self.robo_turn(robot_choice, dinasaur_choice)
             dino_start = False  
         else:
-            self.robo_turn(robot_choice)
-            self.dino_turn(dinasaur_choice)
+            self.robo_turn(robot_choice, dinasaur_choice)
+            self.dino_turn(dinasaur_choice, robot_choice)
             dino_start = True
 
         
-    def dino_turn(self, dinosaur_choice):
+    def dino_turn(self, dinosaur_choice, robot_choice):
         print('Dinosaurs turn')
-        dinosaur_choice.attack()
+        dinosaur_choice.attack(robot_choice)
         
 
-    def robo_turn(self, robot_choice):
+    def robo_turn(self, robot_choice, dinosaur_choice):
         print('Robots turn')
-        robot_choice.attack()
+        robot_choice.attack(dinosaur_choice)
     
 
     def show_dino_fighter_options(self):
         print('TEAM DINOSAUR! Pick your dinosaur: ')
-        count = 1
+        count = 0
         for i in self.herd.dinosaurs:
             if i.health > 0:
                 print(f'{str(count)} for {i.name}. Remaining Health: {i.health}')
