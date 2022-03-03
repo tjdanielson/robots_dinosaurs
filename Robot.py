@@ -9,7 +9,8 @@ class Robot:
     def attack(self, dinosaur):
         print(f'{self.name} attacked {dinosaur} with {self.weapon.name}!')
              
-robot = Robot('Test bot', Weapon('test weapon', 10))
-print(robot.name + robot.weapon.name)
+#for testing:
+# robot = Robot('Test bot', Weapon('test weapon', 10))
+# print(robot.name + robot.weapon.name)
 
-robot.attack('stego')
+# robot.attack('stego')

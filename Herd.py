@@ -17,7 +17,7 @@ class Herd:
         #     print(i.name)
 
 #for testing:
-herd = Herd()
+#herd = Herd()
 
 
 

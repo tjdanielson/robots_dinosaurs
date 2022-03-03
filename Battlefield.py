@@ -6,28 +6,34 @@ class Battlefield:
         self.fleet = Fleet()
         self.herd = Herd()
 
-    def run_game(self):
-        self.fleet.create_fleet
-        self.herd.create_herd
-
     def display_welcome(self):
         print('Welcome to ROBOTS vs DINOSAURS!!')
 
     def battle(self):
         pass
-
-    def dino_turn(self, dinosaur):
-        print('Pick your dinosaur: \n(1) for {dino_one} \n(2) for {dino_two} \n(3) for {dino_three}')
-        dinosaur.attack()
         
 
-    def robo_turn(self, robot):
-        print('Pick your robot: \n(1) for {robot.robo_one} \n(2) for {robo_two} \n(3) for {robo_three}')
-        robot.attack()
-        if self.weapon.attack_power > dinosaur.health:
-            print(f'{dinosaur.name} died.')
-        else:
-            print(f'{dinosaur.name} was damaged. Health = {dinosaur.health}')
+    def dino_turn(self):
+        print('TEAM DINOSAUR! Pick your dinosaur: ')
+        count = 1
+        for i in self.herd.dinosaurs:
+            if i.health > 0:
+                print(f'{str(count)} for {i.name}')
+                count += 1
+        dinosaur_choice = input('Choose your dinosaur')
+        return dinosaur_choice
+
+        
+    def robo_turn(self):
+        print('TEAM ROBOT! Pick your robot: ')
+        count = 1
+        for i in self.fleet.robots:
+            if i.health > 0:
+                print(f'{str(count)} for {i.name}')
+                count += 1
+        robot_choice = input('Choose your robot')
+        return robot_choice
+    
 
     def show_dino_opponent_options(self):
         pass
@@ -37,4 +43,17 @@ class Battlefield:
 
     def display_winners(self):
         pass
+
+    def run_game(self):
+        #display a welcome message
+        self.display_welcome() 
+        self.dino_turn()
+        self.robo_turn()
+        #Team dino, pick your dino for battle! (pick a dino from list --> if dino health > 0)
+        #Team robot, pick your robot for battle! (pick a robot from list --> if robot health > 0)
+        #if round starter variable = Dino then dino attacks robot, else robot attacks dino
+        #Dino attacks robot
+        #If health > 0 -- Robot attacks Dino - else: Robot is dead
+        #flip round starter variable (if it was dino, now its robo)
+        #Round over
         

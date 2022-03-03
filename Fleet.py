@@ -18,4 +18,4 @@ class Fleet:
         #     print(i.name + i.weapon.name)
 
 # for testing:
-fleet = Fleet()
+#fleet = Fleet()
