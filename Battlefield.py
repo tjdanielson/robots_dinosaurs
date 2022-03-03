@@ -10,7 +10,7 @@ class Battlefield:
         print('Welcome to ROBOTS vs DINOSAURS!!')
 
     def battle(self):
-        dino_start = True
+        dino_start = True #BUG: resets to True every time. dino_start needs to live somewhere else
         dinosaur_choice = self.show_dino_fighter_options()
         robot_choice = self.show_robo_fighter_options()
         print('****************************************')
@@ -107,7 +107,6 @@ class Battlefield:
         #pick fighters and battle while both teams have health above zero
         while self.health_calculation() == True:
             self.battle()
-            self.health_calculation()
 
         #display winner
         if self.health_calculation() == False:
