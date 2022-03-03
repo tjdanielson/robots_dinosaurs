@@ -11,15 +11,15 @@ class Battlefield:
 
     def battle(self):
         dino_start = True
-        dinasaur_choice = self.show_dino_fighter_options()
+        dinosaur_choice = self.show_dino_fighter_options()
         robot_choice = self.show_robo_fighter_options()
         if dino_start == True:
-            self.dino_turn(dinasaur_choice, robot_choice)
-            self.robo_turn(robot_choice, dinasaur_choice)
+            self.dino_turn(dinosaur_choice, robot_choice)
+            self.robo_turn(robot_choice, dinosaur_choice)
             dino_start = False  
         else:
-            self.robo_turn(robot_choice, dinasaur_choice)
-            self.dino_turn(dinasaur_choice, robot_choice)
+            self.robo_turn(robot_choice, dinosaur_choice)
+            self.dino_turn(dinosaur_choice, robot_choice)
             dino_start = True
 
         
