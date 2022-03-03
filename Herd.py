@@ -5,4 +5,12 @@ class Herd:
         self.dinosaurs = []
     
     def create_herd(self):
-        pass
+        dino_one = Dinosaur('Rex the T-Rex', 30)
+        dino_two = Dinosaur('Petr the Pterodactyl', 20)
+        dino_three = Dinosaur('Vela the Velociraptor', 10)
+        self.dinosaurs.append(dino_one)
+        self.dinosaurs.append(dino_two)
+        self.dinosaurs.append(dino_three)
+
+
+
