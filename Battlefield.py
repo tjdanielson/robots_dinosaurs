@@ -10,50 +10,93 @@ class Battlefield:
         print('Welcome to ROBOTS vs DINOSAURS!!')
 
     def battle(self):
-        pass
+        dino_start = True
+        if dino_start == True:
+            self.dino_turn(self.show_dino_fighter_options())
+            self.robo_turn(self.show_robo_fighter_options())
+            dino_start = False  
+        else:
+            self.robo_turn(self.show_robo_fighter_options())
+            self.dino_turn(self.show_dino_fighter_options())
+            dino_start = True
+
+        
+    def dino_turn(self, dinosaur_choice):
+        print('Dinosaurs turn')
+        dinosaur_choice.attack()
         
 
-    def dino_turn(self):
+    def robo_turn(self, robot_choice):
+        print('Robots turn')
+        robot_choice.attack()
+    
+
+    def show_dino_fighter_options(self):
         print('TEAM DINOSAUR! Pick your dinosaur: ')
         count = 1
         for i in self.herd.dinosaurs:
             if i.health > 0:
                 print(f'{str(count)} for {i.name}')
                 count += 1
-        dinosaur_choice = input('Choose your dinosaur')
+        dinosaur_choice = input('Enter your choice of dinosaur ')
         return dinosaur_choice
 
-        
-    def robo_turn(self):
+    def show_robo_fighter_options(self):
         print('TEAM ROBOT! Pick your robot: ')
         count = 1
         for i in self.fleet.robots:
             if i.health > 0:
                 print(f'{str(count)} for {i.name}')
                 count += 1
-        robot_choice = input('Choose your robot')
+        robot_choice = input('Enter your choice of robot ')
         return robot_choice
-    
 
-    def show_dino_opponent_options(self):
-        pass
-
-    def show_robo_opponent_options(self):
-        pass
+    def health_calculation(self):
+        total_health_dino = 0
+        total_health_robot = 0
+        keep_playing = True
+        for i in self.fleet.robots:
+            if i.health > 0:
+                total_health_robot += i.health
+        for i in self.herd.dinosaurs:
+            if i.health > 0:
+                total_health_dino += i.health
+        if total_health_dino <= 0 or total_health_robot <= 0:
+            keep_playing = False
+        return keep_playing
 
     def display_winners(self):
-        pass
+        total_health_dino = 0
+        total_health_robot = 0
+        winner = ''
+        for i in self.fleet.robots:
+            if i.health > 0:
+                total_health_robot += i.health
+        for i in self.herd.dinosaurs:
+            if i.health > 0:
+                total_health_dino += i.health
+        if total_health_dino > 0:
+            winner = 'Team Dinosaur'
+        else:
+            winner = 'Team Robot'
+        print(f'The winner is {winner}!!!!')
 
     def run_game(self):
         #display a welcome message
         self.display_welcome() 
-        self.dino_turn()
-        self.robo_turn()
-        #Team dino, pick your dino for battle! (pick a dino from list --> if dino health > 0)
-        #Team robot, pick your robot for battle! (pick a robot from list --> if robot health > 0)
-        #if round starter variable = Dino then dino attacks robot, else robot attacks dino
-        #Dino attacks robot
-        #If health > 0 -- Robot attacks Dino - else: Robot is dead
-        #flip round starter variable (if it was dino, now its robo)
-        #Round over
+
+        #pick fighters and battle while both teams have health above zero
+        while self.health_calculation() == True:
+            self.show_dino_fighter_options
+            self.show_robo_fighter_options
+            self.battle
+            self.health_calculation
+
+        #display winner
+        if self.health_calculation() == False:
+            self.display_winners()
+        
+        
+      
+       
         

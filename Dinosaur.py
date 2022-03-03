@@ -7,6 +7,10 @@ class Dinosaur:
     
     def attack(self, robot):
         print(f'{self.name} attacked {robot}!')
+        if self.attack_power > robot.health:
+            robot.health = 0
+        else:
+            robot.health -= self.attack_power
 
 #for testing:
 # dinosaur = Dinosaur('Test dino', 20)
