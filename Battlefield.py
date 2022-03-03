@@ -13,6 +13,7 @@ class Battlefield:
         dino_start = True
         dinosaur_choice = self.show_dino_fighter_options()
         robot_choice = self.show_robo_fighter_options()
+        print('****************************************')
         if dino_start == True:
             self.dino_turn(dinosaur_choice, robot_choice)
             self.robo_turn(robot_choice, dinosaur_choice)
@@ -24,21 +25,24 @@ class Battlefield:
 
         
     def dino_turn(self, dinosaur_choice, robot_choice):
+        print('****************************************')
         print('Dinosaurs turn')
         dinosaur_choice.attack(robot_choice)
         
 
     def robo_turn(self, robot_choice, dinosaur_choice):
+        print('****************************************')
         print('Robots turn')
         robot_choice.attack(dinosaur_choice)
     
 
     def show_dino_fighter_options(self):
+        print('****************************************')
         print('TEAM DINOSAUR! Pick your dinosaur: ')
         count = 0
         for i in self.herd.dinosaurs:
             if i.health > 0:
-                print(f'{str(count)} for {i.name}. Remaining Health: {i.health}')
+                print(f'{str(self.herd.dinosaurs.index(i))} for {i.name}. Remaining Health: {i.health}')
                 count += 1
         dinosaur_choice = input('Enter your choice of dinosaur ')
         if dinosaur_choice == '0' or dinosaur_choice == '1' or dinosaur_choice == '2':
@@ -48,11 +52,12 @@ class Battlefield:
         return dinosaur_choice
 
     def show_robo_fighter_options(self):
+        print('****************************************')
         print('TEAM ROBOT! Pick your robot: ')
         count = 0
         for i in self.fleet.robots:
             if i.health > 0:
-                print(f'{str(count)} for {i.name}. Remaining Health: {i.health}')
+                print(f'{str(self.fleet.robots.index(i))} for {i.name}. Remaining Health: {i.health}')
                 count += 1
         robot_choice = input('Enter your choice of robot ')
         if robot_choice == '0' or robot_choice == '1' or robot_choice == '2':
