@@ -11,13 +11,15 @@ class Battlefield:
 
     def battle(self):
         dino_start = True
+        dinasaur_choice = self.show_dino_fighter_options()
+        robot_choice = self.show_robo_fighter_options()
         if dino_start == True:
-            self.dino_turn(self.show_dino_fighter_options())
-            self.robo_turn(self.show_robo_fighter_options())
+            self.dino_turn(dinasaur_choice)
+            self.robo_turn(robot_choice)
             dino_start = False  
         else:
-            self.robo_turn(self.show_robo_fighter_options())
-            self.dino_turn(self.show_dino_fighter_options())
+            self.robo_turn(robot_choice)
+            self.dino_turn(dinasaur_choice)
             dino_start = True
 
         
@@ -39,17 +41,26 @@ class Battlefield:
                 print(f'{str(count)} for {i.name}')
                 count += 1
         dinosaur_choice = input('Enter your choice of dinosaur ')
+        if dinosaur_choice == '0' or dinosaur_choice == '1' or dinosaur_choice == '2':
+            dinosaur_choice = self.herd.dinosaurs[int(dinosaur_choice)]
+        else:
+            dinosaur_choice = input('Enter your choice of dinosaur ')
         return dinosaur_choice
 
     def show_robo_fighter_options(self):
         print('TEAM ROBOT! Pick your robot: ')
-        count = 1
+        count = 0
         for i in self.fleet.robots:
             if i.health > 0:
                 print(f'{str(count)} for {i.name}')
                 count += 1
         robot_choice = input('Enter your choice of robot ')
+        if robot_choice == '0' or robot_choice == '1' or robot_choice == '2':
+            robot_choice = self.fleet.robots[int(robot_choice)]
+        else:
+            robot_choice = input('Enter your choice of dinosaur ')
         return robot_choice
+        
 
     def health_calculation(self):
         total_health_dino = 0
@@ -87,10 +98,8 @@ class Battlefield:
 
         #pick fighters and battle while both teams have health above zero
         while self.health_calculation() == True:
-            self.show_dino_fighter_options
-            self.show_robo_fighter_options
-            self.battle
-            self.health_calculation
+            self.battle()
+            self.health_calculation()
 
         #display winner
         if self.health_calculation() == False:
