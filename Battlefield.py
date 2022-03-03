@@ -28,14 +28,12 @@ class Battlefield:
 
         
     def dino_turn(self, dinosaur_choice, robot_choice):
-        print('****************************************')
-        print('Dinosaurs turn')
+        print('DINOSAUR\'S TURN')
         dinosaur_choice.attack(robot_choice)
         
 
     def robo_turn(self, robot_choice, dinosaur_choice):
-        print('****************************************')
-        print('Robots turn')
+        print('ROBOT\'S TURN')
         robot_choice.attack(dinosaur_choice)
     
 
