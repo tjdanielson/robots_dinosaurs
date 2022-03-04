@@ -26,6 +26,8 @@ class Battlefield:
         self.dino_turn(dinosaur_choice, robot_choice, dinosaur_attack)
         if robot_choice.health == 0:
             print(f'{robot_choice.name} died, ending the round.')
+        elif dinosaur_choice.health == 0:
+            print(f'{dinosaur_choice.name} died, ending the round.')
         else: 
             self.robo_turn(robot_choice, dinosaur_choice)
 
@@ -48,6 +50,8 @@ class Battlefield:
         self.robo_turn(robot_choice, dinosaur_choice)
         if dinosaur_choice.health == 0:
             print(f'{dinosaur_choice.name} died, ending the round.')
+        elif robot_choice.health == 0:
+            print(f'{robot_choice.name} died, ending the round.')
         else:
             self.dino_turn(dinosaur_choice, robot_choice, dinosaur_attack)
         
