@@ -99,7 +99,7 @@ class Battlefield:
     # Asks user if they want to change their robot's weapon, if they do, it calls the weapon_swap method from the fleet class
     def change_weapon(self, robot_choice):
         print(f'TEAM ROBOT, {robot_choice.name}\'s current weapon is {robot_choice.weapon.name} - do you want to change it?')
-        weapon_change = input('Change weapon? Y/N ')
+        weapon_change = input('Change weapon? Y/N ').upper()
         while weapon_change != 'Y' and weapon_change != 'N':
             weapon_change = input('Change weapon? Y/N ')
         if weapon_change == 'Y':
