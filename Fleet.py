@@ -4,13 +4,38 @@ from Weapon import Weapon
 class Fleet:
     def __init__(self):
         self.robots = []
+        self.armory = []
+        self.create_armory()
         self.create_fleet()
+        
+    def create_armory(self):
+        weapon_one = Weapon('Paper Cutter', 10)
+        weapon_two = Weapon('Mind Control', 30)
+        wepaon_three = Weapon('Broken Bottle', 20)
+        self.armory.append(weapon_one)
+        self.armory.append(weapon_two)
+        self.armory.append(wepaon_three)
     
     def create_fleet(self):
-        robo_one = Robot('R2D2', Weapon('Paper Cutter', 10))
-        robo_two = Robot('HAL', Weapon('Mind Conrol', 30))
-        robo_three = Robot('Bender', Weapon('Broken Bottle', 20))
+        robo_one = Robot('R2D2', self.armory[0])
+        robo_two = Robot('HAL', self.armory[1])
+        robo_three = Robot('Bender', self.armory[2])
         self.robots.append(robo_one)
         self.robots.append(robo_two)
         self.robots.append(robo_three)
+    
+    def weapon_swap(self):
+        print('****************************************')
+        print('TEAM ROBOT! Pick your weapon: ')
+        for i in self.armory:
+            print(f'{str(self.armory.index(i))} for {i.name}. Attack Power: {i.attack_power}')
+        weapon_choice = input('Enter your choice of weapon ')
+        while weapon_choice != '0' and weapon_choice != '1' and weapon_choice != '2':
+            weapon_choice = input('Enter your choice of weapon ')
+        if weapon_choice == '0' or weapon_choice == '1' or weapon_choice == '2':
+            for i in self.robots:
+                i.weapon = self.armory[int(weapon_choice)]
+            
+
+
         
