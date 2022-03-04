@@ -73,6 +73,9 @@ class Battlefield:
         while dinosaur_choice != '0' and dinosaur_choice != '1' and dinosaur_choice != '2':
             dinosaur_choice = input('Enter your choice of dinosaur ')
         if dinosaur_choice == '0' or dinosaur_choice == '1' or dinosaur_choice == '2':
+            for i in self.herd.dinosaurs:
+                while self.herd.dinosaurs.index(i) == int(dinosaur_choice) and i.health == 0:
+                    dinosaur_choice = input(f'{i.name} is dead! Pick a dinosaur from the list above! Enter your choice of dinosaur: ')
             dinosaur_choice = self.herd.dinosaurs[int(dinosaur_choice)]  
         return dinosaur_choice
 
@@ -87,6 +90,9 @@ class Battlefield:
         while robot_choice != '0' and robot_choice != '1' and robot_choice != '2':
             robot_choice = input('Enter your choice of robot ')
         if robot_choice == '0' or robot_choice == '1' or robot_choice == '2':
+            for i in self.fleet.robots:
+                while self.fleet.robots.index(i) == int(robot_choice) and i.health == 0:
+                    robot_choice = input(f'{i.name} is dead! Pick a robot from the list above! Enter your choice of robot: ')
             robot_choice = self.fleet.robots[int(robot_choice)]
         return robot_choice
 
