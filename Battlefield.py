@@ -9,8 +9,7 @@ class Battlefield:
     def display_welcome(self):
         print('Welcome to ROBOTS vs DINOSAURS!!')
 
-    def battle(self):
-        dino_start = True #BUG: resets to True every time. dino_start needs to live somewhere else
+    def battle_dino_start(self):
         dinosaur_choice = self.show_dino_fighter_options()
         dinosaur_attack = self.choose_attack()
         robot_choice = self.show_robo_fighter_options()
@@ -18,20 +17,26 @@ class Battlefield:
         print('****************************************')
         print('READY...SET...BATTLE!!!')
         print('****************************************')
-        if dino_start == True:
-            self.dino_turn(dinosaur_choice, robot_choice, dinosaur_attack)
-            if robot_choice.health == 0:
-                print(f'{robot_choice.name} died, ending the round.')
-            else: 
-                self.robo_turn(robot_choice, dinosaur_choice)
-            dino_start = False  
-        else:
+        self.dino_turn(dinosaur_choice, robot_choice, dinosaur_attack)
+        if robot_choice.health == 0:
+            print(f'{robot_choice.name} died, ending the round.')
+        else: 
             self.robo_turn(robot_choice, dinosaur_choice)
-            if dinosaur_choice.health == 0:
-                print(f'{dinosaur_choice.name} died, ending the round.')
-            else:
-                self.dino_turn(dinosaur_choice, robot_choice)
-            dino_start = True
+             
+       
+    def battle_robot_start(self):
+        robot_choice = self.show_robo_fighter_options()
+        self.change_weapon(robot_choice)
+        dinosaur_choice = self.show_dino_fighter_options()
+        dinosaur_attack = self.choose_attack()
+        print('****************************************')
+        print('READY...SET...BATTLE!!!')
+        print('****************************************')
+        self.robo_turn(robot_choice, dinosaur_choice)
+        if dinosaur_choice.health == 0:
+            print(f'{dinosaur_choice.name} died, ending the round.')
+        else:
+            self.dino_turn(dinosaur_choice, robot_choice, dinosaur_attack)
 
 
         
@@ -136,10 +141,17 @@ class Battlefield:
         #display a welcome message
         self.display_welcome() 
 
-        #pick fighters and battle while both teams have health above zero
+        #pick fighters and battle while both teams have health above zero. this will alternate between battle_dino_start and battle_robot_start 
+        # to dictates who attacks first in the round (this is just based off of who started first last time, each game Dino starts first)
+        dino_start = True
         while self.health_calculation() == True:
-            self.battle()
-
+            if dino_start == True:
+                self.battle_dino_start()
+                dino_start = False
+            else:
+                self.battle_robot_start()
+                dino_start = True
+            
         #display winner
         if self.health_calculation() == False:
             self.display_winners()
