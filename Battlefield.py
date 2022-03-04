@@ -6,6 +6,25 @@ class Battlefield:
         self.fleet = Fleet()
         self.herd = Herd()
 
+    def run_game(self):
+        #display a welcome message
+        self.display_welcome() 
+
+        #pick fighters and battle while both teams have health above zero. this will alternate between battle_dino_start and battle_robot_start 
+        # to dictate who attacks first in the round (this is just based off of who started first last time, each game Dino starts first)
+        dino_start = True
+        while self.health_calculation() == True:
+            if dino_start == True:
+                self.battle_dino_start()
+                dino_start = False
+            else:
+                self.battle_robot_start()
+                dino_start = True
+            
+        #display winner
+        if self.health_calculation() == False:
+            self.display_winners()
+
     def display_welcome(self):
         print('Welcome to ROBOTS vs DINOSAURS!!')
 
@@ -160,24 +179,7 @@ class Battlefield:
         print(f'THE WINNER IS {winner}!!!!')
         print('****************************************')
 
-    def run_game(self):
-        #display a welcome message
-        self.display_welcome() 
-
-        #pick fighters and battle while both teams have health above zero. this will alternate between battle_dino_start and battle_robot_start 
-        # to dictate who attacks first in the round (this is just based off of who started first last time, each game Dino starts first)
-        dino_start = True
-        while self.health_calculation() == True:
-            if dino_start == True:
-                self.battle_dino_start()
-                dino_start = False
-            else:
-                self.battle_robot_start()
-                dino_start = True
-            
-        #display winner
-        if self.health_calculation() == False:
-            self.display_winners()
+   
         
         
       
