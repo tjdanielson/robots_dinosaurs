@@ -80,6 +80,7 @@ class Battlefield:
             self.fleet.weapon_swap(robot_choice)
     
     def choose_attack(self):
+        print('****************************************')
         attack_tuple = ("Eye Scratch", "Dive Bomb", "Bite")
         print(f'TEAM DINOSAUR, choose your attack!')
         count = 0
@@ -129,6 +130,7 @@ class Battlefield:
             winner = 'TEAM ROBOT'
         print('****************************************')
         print(f'THE WINNER IS {winner}!!!!')
+        print('****************************************')
 
     def run_game(self):
         #display a welcome message

@@ -5,8 +5,10 @@ class Robot:
         self.name = name
         self.health = 50
         self.weapon = weapon
+        self.power_level = 50
     
     def attack(self, dinosaur):
+        self.power_level -= 10
         if self.weapon.attack_power >= dinosaur.health:
             dinosaur.health = 0
             print(f'{self.name} landed a blow on {dinosaur.name} with {self.weapon.name}, KILLING {dinosaur.name}')
