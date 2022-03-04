@@ -12,12 +12,7 @@ class Herd:
         self.dinosaurs.append(dino_one)
         self.dinosaurs.append(dino_two)
         self.dinosaurs.append(dino_three)
-        # for testing:
-        # for i in self.dinosaurs:
-        #     print(i.name)
-
-#for testing:
-#herd = Herd()
+        
 
 
 

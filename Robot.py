@@ -14,8 +14,3 @@ class Robot:
             dinosaur.health -= self.weapon.attack_power
             print(f'{self.name} attacked {dinosaur.name} and did {self.weapon.attack_power} damage leaving {dinosaur.name} with <<{dinosaur.health} HEALTH>> remaining')
              
-#for testing:
-# robot = Robot('Test bot', Weapon('test weapon', 10))
-# print(robot.name + robot.weapon.name)
-
-# robot.attack('stego')

@@ -13,9 +13,4 @@ class Fleet:
         self.robots.append(robo_one)
         self.robots.append(robo_two)
         self.robots.append(robo_three)
-        #for testing:
-        # for i in self.robots:
-        #     print(i.name + i.weapon.name)
-
-# for testing:
-#fleet = Fleet()
+        
