@@ -5,6 +5,7 @@ class Herd:
         self.dinosaurs = []
         self.create_herd()
     
+    #creates a herd of dinosaurs
     def create_herd(self):
         dino_one = Dinosaur('Rex the T-Rex', 30)
         dino_two = Dinosaur('Petr the Pterodactyl', 20)

@@ -7,7 +7,8 @@ class Fleet:
         self.armory = []
         self.create_armory()
         self.create_fleet()
-        
+
+    #creates an armory of weapons that the robot team can choose from    
     def create_armory(self):
         weapon_one = Weapon('Paper Cutter', 10)
         weapon_two = Weapon('Mind Control', 30)
@@ -16,6 +17,7 @@ class Fleet:
         self.armory.append(weapon_two)
         self.armory.append(wepaon_three)
     
+    #creates a fleet of robots and sets a default weapon
     def create_fleet(self):
         robo_one = Robot('R2D2', self.armory[0])
         robo_two = Robot('HAL', self.armory[1])
@@ -24,6 +26,7 @@ class Fleet:
         self.robots.append(robo_two)
         self.robots.append(robo_three)
     
+    #allows the robot to swap the weapon they are using
     def weapon_swap(self, robot_choice):
         print('****************************************')
         print('TEAM ROBOT! Pick your weapon: ')
