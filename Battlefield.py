@@ -13,12 +13,7 @@ class Battlefield:
         dino_start = True #BUG: resets to True every time. dino_start needs to live somewhere else
         dinosaur_choice = self.show_dino_fighter_options()
         robot_choice = self.show_robo_fighter_options()
-        print(f'TEAM ROBOT, your current weapon is {robot_choice.weapon.name} - do you want to change it?')
-        weapon_change = input('Change weapon? Y/N ')
-        while weapon_change != 'Y' and weapon_change != 'N':
-            weapon_change = input('Change weapon? Y/N ')
-        if weapon_change == 'Y':
-            self.fleet.weapon_swap()
+        self.change_weapon(robot_choice)
         print('****************************************')
         print('READY...SET...BATTLE!!!')
         print('****************************************')
@@ -75,9 +70,14 @@ class Battlefield:
             robot_choice = self.fleet.robots[int(robot_choice)]
         return robot_choice
 
-    
-        
-
+    def change_weapon(self, robot_choice):
+        print(f'TEAM ROBOT, your current weapon is {robot_choice.weapon.name} - do you want to change it?')
+        weapon_change = input('Change weapon? Y/N ')
+        while weapon_change != 'Y' and weapon_change != 'N':
+            weapon_change = input('Change weapon? Y/N ')
+        if weapon_change == 'Y':
+            self.fleet.weapon_swap()
+  
     def health_calculation(self):
         total_health_dino = 0
         total_health_robot = 0
