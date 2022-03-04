@@ -18,11 +18,17 @@ class Battlefield:
         print('****************************************')
         if dino_start == True:
             self.dino_turn(dinosaur_choice, robot_choice)
-            self.robo_turn(robot_choice, dinosaur_choice)
+            if robot_choice.health == 0:
+                print(f'{robot_choice.name} died, ending the round.')
+            else: 
+                self.robo_turn(robot_choice, dinosaur_choice)
             dino_start = False  
         else:
             self.robo_turn(robot_choice, dinosaur_choice)
-            self.dino_turn(dinosaur_choice, robot_choice)
+            if dinosaur_choice.health == 0:
+                print(f'{dinosaur_choice.name} died, ending the round.')
+            else:
+                self.dino_turn(dinosaur_choice, robot_choice)
             dino_start = True
 
 
@@ -94,11 +100,11 @@ class Battlefield:
             if i.health > 0:
                 total_health_dino += i.health
         if total_health_dino > 0:
-            winner = 'Team Dinosaur'
+            winner = 'TEAM DINOSAUR'
         else:
-            winner = 'Team Robot'
+            winner = 'TEAM ROBOT'
         print('****************************************')
-        print(f'THE WINNER IS {winner.upper}!!!!')
+        print(f'THE WINNER IS {winner}!!!!')
 
     def run_game(self):
         #display a welcome message
