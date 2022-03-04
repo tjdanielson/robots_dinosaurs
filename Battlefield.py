@@ -44,10 +44,10 @@ class Battlefield:
             if i.health > 0:
                 print(f'{str(self.herd.dinosaurs.index(i))} for {i.name}. Remaining Health: {i.health}')
         dinosaur_choice = input('Enter your choice of dinosaur ')
-        if dinosaur_choice == '0' or dinosaur_choice == '1' or dinosaur_choice == '2':
-            dinosaur_choice = self.herd.dinosaurs[int(dinosaur_choice)]
-        else:
+        while dinosaur_choice != '0' and dinosaur_choice != '1' and dinosaur_choice != '2':
             dinosaur_choice = input('Enter your choice of dinosaur ')
+        if dinosaur_choice == '0' or dinosaur_choice == '1' or dinosaur_choice == '2':
+            dinosaur_choice = self.herd.dinosaurs[int(dinosaur_choice)]  
         return dinosaur_choice
 
     def show_robo_fighter_options(self):
@@ -57,10 +57,10 @@ class Battlefield:
             if i.health > 0:
                 print(f'{str(self.fleet.robots.index(i))} for {i.name}. Remaining Health: {i.health}')
         robot_choice = input('Enter your choice of robot ')
+        while robot_choice != '0' and robot_choice != '1' and robot_choice != '2':
+            robot_choice = input('Enter your choice of robot ')
         if robot_choice == '0' or robot_choice == '1' or robot_choice == '2':
             robot_choice = self.fleet.robots[int(robot_choice)]
-        else:
-            robot_choice = input('Enter your choice of dinosaur ')
         return robot_choice
         
 
