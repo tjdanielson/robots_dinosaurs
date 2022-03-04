@@ -11,7 +11,7 @@ Robots:
 *Team Robot has a fleet of three robots - R2D2, HAL, and Bender.
 *Robots come with weapons and each weapon has a different 'Attack Power' - they default as follows:
 ***R2D2 -- Paper Cutter (Attack Power: 10)
-***HAL -- Mind Control (Attack Power: 30)
+***HAL -- Mind Control (Attack Power: 20)
 ***BENDER -- Broken Bottle (Attack Power: 20)
 
 Although they default as above, the fleet of robots share the weapons. You can choose to use any of the weapons with any of the fighters (you will be prompted to change before each round)
@@ -19,9 +19,9 @@ Although they default as above, the fleet of robots share the weapons. You can c
 Dinosaurs:
 *Team Dinosaur has a herd of three dinosaurs - Rex the T-Rex, Petr the Pterodactyl, and Vela the Velociraptor
 *Dinosaurs' attack power is associated directly to the dinosaur as follows:
-***Rex the T-Rex -- Attack Power: 30
-***Petr the Pterodactyl -- Attack Power: 20
-***Vela the Velociraptor -- Attack Power: 10
+***Rex the T-Rex -- Attack Power: 20
+***Petr the Pterodactyl -- Attack Power: 15
+***Vela the Velociraptor -- Attack Power: 15
 
 Before each round, Team Dinosaur must choose which attack they want their fighter to perform in the battle. The options are as follows:
 *Eye Scratch
