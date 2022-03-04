@@ -19,9 +19,9 @@ Although they default as above, the fleet of robots share the weapons. You can c
 Dinosaurs:
 *Team Dinosaur has a herd of three dinosaurs - Rex the T-Rex, Petr the Pterodactyl, and Vela the Velociraptor
 *Dinosaurs' attack power is associated directly to the dinosaur as follows:
-***Rex the T-Rex -- Attack Power: 20
-***Petr the Pterodactyl -- Attack Power: 15
-***Vela the Velociraptor -- Attack Power: 15
+***Rex the T-Rex -- Attack Power: 40
+***Petr the Pterodactyl -- Attack Power: 20
+***Vela the Velociraptor -- Attack Power: 20
 
 Before each round, Team Dinosaur must choose which attack they want their fighter to perform in the battle. The options are as follows:
 *Eye Scratch
