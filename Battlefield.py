@@ -165,13 +165,13 @@ class Battlefield:
         print('STATS:')
         for i in self.fleet.robots:
             print(f'Robot: {i.name} Remaining Health: {i.health}')
-            if i.health > 0:
-                total_health_robot += i.health
+            total_health_robot += i.health
         for i in self.herd.dinosaurs:
             print(f'Dinosaur: {i.name} Remaining Health: {i.health}')
-            if i.health > 0:
-                total_health_dino += i.health
-        if total_health_dino > 0:
+            total_health_dino += i.health
+        if total_health_dino == total_health_robot:
+            winner = 'IT\'S A TIE!!!!'
+        elif total_health_dino > 0:
             winner = 'TEAM DINOSAUR'
         else:
             winner = 'TEAM ROBOT'
