@@ -10,7 +10,7 @@ class Fleet:
 
     #creates an armory of weapons that the robot team can choose from    
     def create_armory(self):
-        weapon_one = Weapon('Paper Cutter', 10)
+        weapon_one = Weapon('Paper Cutter', 20)
         weapon_two = Weapon('Mind Control', 20)
         wepaon_three = Weapon('Broken Bottle', 20)
         self.armory.append(weapon_one)
