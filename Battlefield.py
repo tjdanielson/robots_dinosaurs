@@ -76,7 +76,7 @@ class Battlefield:
         while weapon_change != 'Y' and weapon_change != 'N':
             weapon_change = input('Change weapon? Y/N ')
         if weapon_change == 'Y':
-            self.fleet.weapon_swap()
+            self.fleet.weapon_swap(robot_choice)
   
     def health_calculation(self):
         total_health_dino = 0

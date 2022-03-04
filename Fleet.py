@@ -24,7 +24,7 @@ class Fleet:
         self.robots.append(robo_two)
         self.robots.append(robo_three)
     
-    def weapon_swap(self):
+    def weapon_swap(self, robot_choice):
         print('****************************************')
         print('TEAM ROBOT! Pick your weapon: ')
         for i in self.armory:
@@ -34,7 +34,8 @@ class Fleet:
             weapon_choice = input('Enter your choice of weapon ')
         if weapon_choice == '0' or weapon_choice == '1' or weapon_choice == '2':
             for i in self.robots:
-                i.weapon = self.armory[int(weapon_choice)]
+                if i == robot_choice:
+                    i.weapon = self.armory[int(weapon_choice)]
             
 
 
