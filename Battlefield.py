@@ -12,13 +12,14 @@ class Battlefield:
     def battle(self):
         dino_start = True #BUG: resets to True every time. dino_start needs to live somewhere else
         dinosaur_choice = self.show_dino_fighter_options()
+        dinosaur_attack = self.choose_attack()
         robot_choice = self.show_robo_fighter_options()
         self.change_weapon(robot_choice)
         print('****************************************')
         print('READY...SET...BATTLE!!!')
         print('****************************************')
         if dino_start == True:
-            self.dino_turn(dinosaur_choice, robot_choice)
+            self.dino_turn(dinosaur_choice, robot_choice, dinosaur_attack)
             if robot_choice.health == 0:
                 print(f'{robot_choice.name} died, ending the round.')
             else: 
@@ -34,9 +35,9 @@ class Battlefield:
 
 
         
-    def dino_turn(self, dinosaur_choice, robot_choice):
+    def dino_turn(self, dinosaur_choice, robot_choice, dinosaur_attack):
         print('DINOSAUR\'S TURN')
-        dinosaur_choice.attack(robot_choice)
+        dinosaur_choice.attack(robot_choice, dinosaur_attack)
         
 
     def robo_turn(self, robot_choice, dinosaur_choice):
@@ -77,7 +78,22 @@ class Battlefield:
             weapon_change = input('Change weapon? Y/N ')
         if weapon_change == 'Y':
             self.fleet.weapon_swap(robot_choice)
-  
+    
+    def choose_attack(self):
+        attack_tuple = ("Eye Scratch", "Dive Bomb", "Bite")
+        print(f'TEAM DINOSAUR, choose your attack!')
+        count = 0
+        for i in attack_tuple:
+            print(f'{str(count)} for {i}.')
+            count += 1
+        attack_choice = input('Choose your attack ')
+        while attack_choice != '0' and attack_choice != '1' and attack_choice != '2':
+            attack_choice = input('Choose your attack ')
+        if attack_choice == '0' or attack_choice == '1' or attack_choice == '2':
+            attack_choice = attack_tuple[int(attack_choice)]
+        return attack_choice
+         
+
     def health_calculation(self):
         total_health_dino = 0
         total_health_robot = 0

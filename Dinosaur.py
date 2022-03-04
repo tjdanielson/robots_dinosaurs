@@ -5,13 +5,13 @@ class Dinosaur:
         self.attack_power = attack_power
         self.health = 10
     
-    def attack(self, robot):
+    def attack(self, robot, dinosaur_attack):
         if self.attack_power >= robot.health:
             robot.health = 0
-            print(f'{self.name} landed a blow, KILLING {robot.name}.')
+            print(f'{self.name} landed a blow with {dinosaur_attack}, KILLING {robot.name}.')
         else:
             robot.health -= self.attack_power
-            print(f'{self.name} attacked {robot.name} and did {self.attack_power} damage leaving {robot.name} with <<{robot.health} HEALTH>> remaining')
+            print(f'{self.name} attacked {robot.name} with {dinosaur_attack} and did {self.attack_power} damage leaving {robot.name} with <<{robot.health} HEALTH>> remaining')
         
 
 
