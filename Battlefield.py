@@ -71,7 +71,7 @@ class Battlefield:
         return robot_choice
 
     def change_weapon(self, robot_choice):
-        print(f'TEAM ROBOT, your current weapon is {robot_choice.weapon.name} - do you want to change it?')
+        print(f'TEAM ROBOT, {robot_choice.name}\'s current weapon is {robot_choice.weapon.name} - do you want to change it?')
         weapon_change = input('Change weapon? Y/N ')
         while weapon_change != 'Y' and weapon_change != 'N':
             weapon_change = input('Change weapon? Y/N ')
