@@ -50,7 +50,7 @@ class Battlefield:
         print('TEAM DINOSAUR! Pick your dinosaur: ')
         for i in self.herd.dinosaurs:
             if i.health > 0:
-                print(f'{str(self.herd.dinosaurs.index(i))} for {i.name}. Remaining Health: {i.health}')
+                print(f'{str(self.herd.dinosaurs.index(i))} for {i.name}. || Remaining Health: {i.health} || Energy Level: {i.energy}')
         dinosaur_choice = input('Enter your choice of dinosaur ')
         while dinosaur_choice != '0' and dinosaur_choice != '1' and dinosaur_choice != '2':
             dinosaur_choice = input('Enter your choice of dinosaur ')
@@ -63,7 +63,7 @@ class Battlefield:
         print('TEAM ROBOT! Pick your robot: ')
         for i in self.fleet.robots:
             if i.health > 0:
-                print(f'{str(self.fleet.robots.index(i))} for {i.name}. Remaining Health: {i.health}')
+                print(f'{str(self.fleet.robots.index(i))} for {i.name}. || Remaining Health: {i.health} || Power Level: {i.power_level}')
         robot_choice = input('Enter your choice of robot ')
         while robot_choice != '0' and robot_choice != '1' and robot_choice != '2':
             robot_choice = input('Enter your choice of robot ')

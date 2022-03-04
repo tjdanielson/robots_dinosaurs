@@ -5,7 +5,7 @@ class Robot:
         self.name = name
         self.health = 50
         self.weapon = weapon
-        self.power_level = 50
+        self.power_level = 30
     
     def attack(self, dinosaur):
         self.power_level -= 10
@@ -15,7 +15,7 @@ class Robot:
         else:
             dinosaur.health -= self.weapon.attack_power
             print(f'{self.name} attacked {dinosaur.name} and did {self.weapon.attack_power} damage leaving {dinosaur.name} with <<{dinosaur.health} HEALTH>> remaining')
-        if self.energy == 0:
+        if self.power_level == 0:
             self.health = 0
             print(f'{self.name} used the last of its power, dropping health to 0 and killing {self.name}')
              
